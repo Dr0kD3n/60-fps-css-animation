@@ -1,18 +1,10 @@
-function toggleClassMenu() {
-	myMenu.classList.add("wrapper--animatable");	
-	if(!myMenu.classList.contains("wrapper--visible")) {		
-		myMenu.classList.add("wrapper--visible");
-	} else {
-		myMenu.classList.remove('wrapper--visible');		
-	}	
+let toggleClassMenu = () => {
+	myMenu.classList.add("sidebar--animatable");	
+	myMenu.classList.contains("sidebar--visible") ? myMenu.classList.remove('sidebar--visible') : myMenu.classList.add("sidebar--visible");	
 }
-
-function OnTransitionEnd() {
-	myMenu.classList.remove("wrapper--animatable");
-}
-
-var myMenu = document.querySelector(".wrapper");
-var oppMenu = document.querySelector(".wrapper-icon");
+let OnTransitionEnd = () => myMenu.classList.remove("sidebar--animatable");
+var myMenu = document.querySelector(".sidebar");
+var oppMenu = document.querySelector(".sidebar-icon");
 myMenu.addEventListener("transitionend", OnTransitionEnd, false);
 oppMenu.addEventListener("click", toggleClassMenu, false);
 myMenu.addEventListener("click", toggleClassMenu, false);
